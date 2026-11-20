@@ -1,0 +1,49 @@
+BPUT DIGITAL CAMPUS PLATFORM — SOFTWARE & ASSET LICENSING REGISTER
+Institution: Biju Patnaik University of Technology (BPUT), Odisha
+Last Updated: November 2026
+
+The BPUT Digital Campus platform is built using the following open-source libraries,
+typography, iconography, and commissioned media assets under their respective licenses:
+
+1. TYPOGRAPHY
+-------------
+* Plus Jakarta Sans
+  - Designer: Gumpita Rahayu, TokyoType
+  - License: SIL Open Font License, Version 1.1 (OFL-1.1)
+  - Purpose: Primary headings, brand crest, and display typography.
+
+* Inter
+  - Designer: Rasmus Andersson
+  - License: SIL Open Font License, Version 1.1 (OFL-1.1)
+  - Purpose: Interface body text, tables, form controls, and tabular numbers.
+
+2. ICONOGRAPHY & STYLING
+------------------------
+* Lucide Icons
+  - Creator: Lucide Contributors
+  - License: ISC License
+  - Purpose: UI iconography and navigational symbols across all campus views.
+
+* Tailwind CSS
+  - Creator: Tailwind Labs Inc.
+  - License: MIT License
+  - Purpose: Utility-first layout framework.
+
+3. SCRIPT LIBRARIES & CLIENT SDKs
+---------------------------------
+* Supabase JS Client (@supabase/supabase-js)
+  - Creator: Supabase Inc.
+  - License: MIT License
+  - Purpose: Client-side relational database and realtime connectivity.
+
+4. MEDIA & PORTRAITS
+--------------------
+* Student Portraits & Visual Crests
+  - Attribution: BPUT Student Representative Council & Portal Architecture Team
+  - License: Creative Commons Attribution 4.0 International (CC BY 4.0)
+  - Notes: Images of student contributors (Palak Saha, Swayam Sidh Behera,
+    Shreeja Mukherjee) are utilized with explicit consent for institutional recognition.
+
+For inquiries regarding intellectual property or licensing verification:
+Office of the Registrar, BPUT, Chhend Colony, Rourkela, Odisha - 769015
+Email: registrar@bput.ac.in

@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    (function() {
+      try {
+        var savedTheme = localStorage.getItem('BPUT_THEME_PREFERENCE');
+        if (savedTheme === 'dark') {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      } catch(e) {}
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Portal Authentication — Biju Patnaik University of Technology (BPUT)</title>
+  <meta name="description" content="Secure student authentication portal for Biju Patnaik University of Technology (BPUT), Odisha. Sign in with your University Registration ID to access campus services.">
+  <link rel="canonical" href="https://campus.bput.ac.in/student-auth.html">
+
+  <!-- Favicon & Touch Icons -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="alternate icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="BPUT Digital Campus Platform">
+  <meta property="og:url" content="https://campus.bput.ac.in/student-auth.html">
+  <meta property="og:title" content="Student Portal Authentication — BPUT Digital Campus Platform">
+  <meta property="og:description" content="Secure student authentication portal for Biju Patnaik University of Technology (BPUT), Odisha. Sign in with your University Registration ID to access campus services.">
+  <meta property="og:image" content="https://campus.bput.ac.in/images/og-bput-campus.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="BPUT Student Services Authentication Gateway Emblem">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Student Portal Authentication — BPUT Digital Campus Platform">
+  <meta name="twitter:description" content="Secure student authentication portal for BPUT Odisha. Sign in to access campus services.">
+  <meta name="twitter:image" content="https://campus.bput.ac.in/images/og-bput-campus.png">
+  <meta name="twitter:image:alt" content="BPUT Student Services Authentication Gateway Emblem">
+
+  <!-- Breadcrumb Schema JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Portal Home",
+        "item": "https://campus.bput.ac.in/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Student Portal Authentication",
+        "item": "https://campus.bput.ac.in/student-auth.html"
+      }
+    ]
+  }
+  </script>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              DEFAULT: '#0a192f',
+              50: '#f0f4f9',
+              100: '#d9e2ee',
+              200: '#b4c7dc',
+              300: '#83a4c4',
+              400: '#557fa7',
+              500: '#38638b',
+              600: '#2a4e72',
+              700: '#233f5d',
+              800: '#1b324b',
+              900: '#102238',
+              950: '#0a192f',
+            },
+            coral: {
+              DEFAULT: '#d94432',
+              50: '#fff5f4',
+              100: '#feece9',
+              200: '#fdd9d4',
+              300: '#fab7ad',
+              400: '#f48879',
+              500: '#ea5c49',
+              600: '#d94432',
+              700: '#b63424',
+              800: '#962e21',
+              900: '#7c2b21',
+              950: '#43130d',
+            },
+            cream: {
+              DEFAULT: '#faf8f5',
+              50: '#fdfbf7',
+              100: '#faf8f5',
+              200: '#f4efe6',
+              300: '#ede4d3',
+              400: '#ded0b8',
+              500: '#cbba9a',
+              600: '#b8a381',
+              700: '#998466',
+              800: '#7d6c53',
+              900: '#675844',
+              950: '#372d22',
+            },
+            univ: {
+              navy: '#0a192f',
+              blue: '#162f52',
+              coral: '#d94432',
+              cream: '#faf8f5',
+              gold: '#d94432',
+              accent: '#d94432'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col font-sans">
+
+  <!-- Topmost Institutional Announcement Ribbon & Navigation -->
+  <header class="institutional-ribbon text-white text-xs py-2 px-4 sm:px-12 flex flex-wrap justify-between items-center gap-2">
+    <div class="flex items-center space-x-2 sm:space-x-3">
+      <span class="text-slate-300 truncate max-w-[200px] sm:max-w-none" data-i18n="univ_brand_title">Biju Patnaik University of Technology • Rourkela</span>
+    </div>
+    <div class="flex items-center space-x-2 text-xs">
+      <div id="student-theme-toggle" class="inline-flex"></div>
+      <div id="student-lang-switcher" class="inline-flex"></div>
+      <a href="index.html" class="text-slate-300 hover:text-white flex items-center gap-1.5 px-2.5 py-1 rounded hover:bg-white/10 transition">
+        <i data-lucide="home" class="w-3.5 h-3.5 text-amber-400"></i>
+        <span data-i18n="main_portal">Main Portal</span>
+      </a>
+      <span class="text-amber-300 font-bold bg-white/15 border border-amber-400/40 px-2.5 py-1 rounded flex items-center gap-1.5">
+        <i data-lucide="graduation-cap" class="w-3.5 h-3.5"></i>
+        <span data-i18n="student_portal">Student Portal</span>
+      </span>
+      <a href="admin-auth.html" class="text-slate-300 hover:text-amber-300 flex items-center gap-1.5 px-2.5 py-1 rounded hover:bg-white/10 transition">
+        <i data-lucide="shield" class="w-3.5 h-3.5 text-amber-400"></i>
+        <span class="hidden sm:inline" data-i18n="admin_login_btn">Admin Login &rarr;</span>
+        <span class="sm:hidden" data-i18n="admin_login_btn">Admin &rarr;</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Breadcrumb Navigation Bar -->
+  <nav aria-label="Breadcrumb" class="bg-slate-100 border-b border-slate-200 py-2 px-4 sm:px-12 text-xs">
+    <div class="max-w-7xl mx-auto flex items-center space-x-2 text-slate-500">
+      <a href="index.html" class="hover:text-blue-900 flex items-center gap-1 transition">
+        <i data-lucide="home" class="w-3.5 h-3.5 text-amber-500"></i>
+        <span>Portal Home</span>
+      </a>
+      <i data-lucide="chevron-right" class="w-3 h-3 text-slate-400"></i>
+      <span class="font-semibold text-slate-800" aria-current="page">Student Portal Authentication</span>
+    </div>
+  </nav>
+
+  <!-- Main Auth Page Content -->
+  <main class="flex-1 flex items-center justify-center p-3 sm:p-6 lg:p-10">
+    <div class="max-w-5xl w-full grid grid-cols-1 lg:grid-cols-12 bg-white rounded-xl shadow-xl border border-slate-200 overflow-hidden">
+      
+      <!-- Left Column: BPUT Institutional Campus Visual Section -->
+      <div class="lg:col-span-5 bg-gradient-to-br from-blue-950 via-slate-900 to-blue-900 text-white p-5 sm:p-7 lg:p-10 flex flex-col justify-between relative overflow-hidden">
+        
+        <!-- Subtle Crest Watermark Background -->
+        <div class="absolute -right-8 -bottom-8 opacity-10 pointer-events-none select-none">
+          <div class="w-56 h-56 border-8 border-white rounded-full flex items-center justify-center text-6xl font-institutional font-bold">
+            BPUT
+          </div>
+        </div>
+
+        <div class="relative z-10 space-y-4 lg:space-y-6">
+          <!-- BPUT Identity -->
+          <div class="flex items-center space-x-3">
+            <div class="w-12 h-12 sm:w-14 sm:h-14 bg-white/10 text-amber-400 rounded-full flex items-center justify-center font-institutional font-bold text-lg sm:text-xl crest-ring border border-amber-400/80 shadow-md shrink-0">
+              BPUT
+            </div>
+            <div>
+              <span class="text-[10px] uppercase font-bold tracking-widest text-amber-400 block" data-i18n="digital_campus">Digital Campus</span>
+              <h1 class="font-institutional text-sm sm:text-base font-bold text-white tracking-tight leading-snug" data-i18n="univ_brand_title">
+                Biju Patnaik University of Technology
+              </h1>
+              <p class="text-[11px] sm:text-xs text-slate-300" data-i18n="univ_location">Rourkela, Odisha</p>
+            </div>
+          </div>
+
+          <div class="pt-3 lg:pt-4 border-t border-slate-800 space-y-2">
+            <h2 class="text-base sm:text-xl font-bold font-institutional text-white leading-tight" data-i18n="card_student_subtitle">
+              One connected platform for students and campus services.
+            </h2>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal hidden sm:block" data-i18n="card_student_desc">
+              Official university portal for student gate passes, hostel services, examination datesheets, and academic services.
+            </p>
+          </div>
+
+          <!-- Services Highlights List (Desktop clean list) -->
+          <div class="hidden sm:grid grid-cols-2 lg:grid-cols-1 gap-2 pt-2 text-xs text-slate-200">
+            <div class="flex items-center space-x-2.5">
+              <div class="w-6 h-6 rounded bg-amber-400/20 text-amber-300 flex items-center justify-center shrink-0">
+                <i data-lucide="ticket" class="w-3.5 h-3.5"></i>
+              </div>
+              <span class="text-[11px] sm:text-xs font-medium" data-i18n="nav_gatepass">Gate Pass & Clearances</span>
+            </div>
+            <div class="flex items-center space-x-2.5">
+              <div class="w-6 h-6 rounded bg-amber-400/20 text-amber-300 flex items-center justify-center shrink-0">
+                <i data-lucide="home" class="w-3.5 h-3.5"></i>
+              </div>
+              <span class="text-[11px] sm:text-xs font-medium" data-i18n="nav_hostel">Hostel Services & Desk</span>
+            </div>
+            <div class="flex items-center space-x-2.5">
+              <div class="w-6 h-6 rounded bg-amber-400/20 text-amber-300 flex items-center justify-center shrink-0">
+                <i data-lucide="calendar-check" class="w-3.5 h-3.5"></i>
+              </div>
+              <span class="text-[11px] sm:text-xs font-medium" data-i18n="nav_exams">Examination & Datesheets</span>
+            </div>
+            <div class="flex items-center space-x-2.5">
+              <div class="w-6 h-6 rounded bg-amber-400/20 text-amber-300 flex items-center justify-center shrink-0">
+                <i data-lucide="credit-card" class="w-3.5 h-3.5"></i>
+              </div>
+              <span class="text-[11px] sm:text-xs font-medium" data-i18n="card_student_title">Student Services</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Notice -->
+        <div class="relative z-10 pt-4 mt-4 border-t border-slate-800 text-[11px] text-slate-400 hidden lg:flex items-center justify-between">
+          <span data-i18n="univ_tagline">State University • Estd. 2002</span>
+          <span class="text-amber-300/80 font-medium" data-i18n="student_portal">Student Services Portal</span>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Authentication Form Card (Login, Sign-Up, Forgot Password) -->
+      <div class="lg:col-span-7 p-5 sm:p-8 lg:p-10 flex flex-col justify-center">
+
+        <!-- ========================================== -->
+        <!-- VIEW 1: STUDENT LOGIN                      -->
+        <!-- ========================================== -->
+        <div id="view-student-login" class="space-y-5">
+          <div>
+            <div class="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-900 bg-blue-50 px-2.5 py-1 rounded border border-blue-100 mb-2">
+              <i data-lucide="graduation-cap" class="w-4 h-4"></i>
+              <span data-i18n="student_portal">Student Portal</span>
+            </div>
+            <h2 class="text-2xl font-bold font-institutional text-slate-900" data-i18n="auth_welcome_back">Welcome Back</h2>
+            <p class="text-xs text-slate-500 mt-1" data-i18n="student_auth_subtitle">
+              Sign in to access your digital campus services.
+            </p>
+          </div>
+
+          <!-- Login Error Alert Container -->
+          <div id="login-error-alert" class="hidden bg-rose-50 border-l-4 border-rose-600 p-3 rounded text-xs text-rose-800 flex items-start gap-2">
+            <i data-lucide="alert-circle" class="w-4 h-4 text-rose-600 shrink-0 mt-0.5"></i>
+            <span id="login-error-msg">Invalid credentials.</span>
+          </div>
+
+          <!-- Login Form -->
+          <form id="student-login-form" class="space-y-4">
+            <div>
+              <label for="login-student-id" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                <span data-i18n="student_id_label">Student ID / Registration Number</span> <span class="text-rose-600">*</span>
+              </label>
+              <div class="relative">
+                <i data-lucide="id-card" class="w-4 h-4 text-slate-400 absolute left-3 top-3"></i>
+                <input 
+                  type="text" 
+                  id="login-student-id" 
+                  name="studentId" 
+                  placeholder="Enter your Student ID / Registration Number"
+                  data-i18n-placeholder="student_id_placeholder"
+                  required
+                  class="w-full pl-9 pr-4 py-2.5 text-xs sm:text-sm border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900 focus:border-transparent transition"
+                >
+              </div>
+            </div>
+
+            <div>
+              <label for="login-password" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                <span data-i18n="password_label">Password</span> <span class="text-rose-600">*</span>
+              </label>
+              <div class="relative">
+                <i data-lucide="lock" class="w-4 h-4 text-slate-400 absolute left-3 top-3"></i>
+                <input 
+                  type="password" 
+                  id="login-password" 
+                  name="password" 
+                  placeholder="Enter your password"
+                  data-i18n-placeholder="password_placeholder"
+                  required
+                  class="w-full pl-9 pr-10 py-2.5 text-xs sm:text-sm border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900 focus:border-transparent transition"
+                >
+                <button type="button" id="btn-toggle-login-pass" class="absolute right-3 top-2.5 text-slate-400 hover:text-slate-600 focus:outline-none" title="Toggle password visibility">
+                  <i data-lucide="eye" id="login-pass-icon" class="w-4 h-4"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between pt-1">
+              <label class="flex items-center text-xs text-slate-600 cursor-pointer select-none">
+                <input type="checkbox" id="login-remember" class="w-4 h-4 rounded border-slate-300 text-blue-900 focus:ring-blue-800">
+                <span class="ml-2" data-i18n="remember_me">Remember me</span>
+              </label>
+              <button type="button" id="btn-goto-forgot" class="text-xs font-semibold text-blue-900 hover:text-blue-700 hover:underline" data-i18n="forgot_password">
+                Forgot password?
+              </button>
+            </div>
+
+            <!-- Form Consent & Terms Acceptance -->
+            <div class="flex items-start gap-2 pt-1 border-t border-slate-100">
+              <input type="checkbox" id="student-consent-check" class="mt-0.5 rounded border-slate-300 text-blue-900 focus:ring-blue-800 cursor-pointer">
+              <label for="student-consent-check" class="text-[11px] text-slate-600 leading-snug cursor-pointer select-none">
+                I agree to BPUT's <a href="terms.html" class="text-blue-900 font-semibold underline">Terms of Service</a> and <a href="privacy.html" class="text-blue-900 font-semibold underline">Privacy Policy</a>.
+              </label>
+            </div>
+
+            <button 
+              type="submit" 
+              id="btn-login-submit" 
+              class="w-full bg-blue-950 hover:bg-blue-900 text-white font-semibold text-xs sm:text-sm py-3 px-4 rounded-lg shadow-md transition flex items-center justify-center gap-2 group cursor-pointer"
+            >
+              <span id="login-btn-text" data-i18n="btn_sign_in">Sign In</span>
+              <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-0.5 transition"></i>
+            </button>
+          </form>
+
+          <!-- Having trouble accessing your account? & Admin switch -->
+          <div class="pt-5 border-t border-slate-200 text-center space-y-3">
+            <p class="text-xs text-slate-500">
+              <span data-i18n="having_trouble">Having trouble accessing your account?</span>
+              <a href="mailto:helpdesk@bput.ac.in" class="font-semibold text-blue-900 hover:underline ml-1" data-i18n="contact_helpdesk">Contact IT Helpdesk</a>
+            </p>
+            <div class="bg-slate-50 border border-slate-200 rounded-lg p-2.5 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs">
+              <span class="text-slate-600 font-medium" data-i18n="campus_admin_question">Campus Administrator?</span>
+              <a href="admin-auth.html" class="font-bold text-amber-950 bg-amber-100 hover:bg-amber-200 border border-amber-300 px-3 py-1.5 rounded-lg transition flex items-center gap-1.5 shadow-sm">
+                <i data-lucide="shield" class="w-3.5 h-3.5 text-amber-800"></i>
+                <span data-i18n="campus_admin_link">Campus Administration &rarr;</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- VIEW 3: FORGOT PASSWORD RECOVERY           -->
+        <!-- ========================================== -->
+        <div id="view-student-forgot" class="hidden space-y-6">
+          <div>
+            <div class="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-900 bg-blue-50 px-2.5 py-1 rounded border border-blue-100 mb-2">
+              <i data-lucide="key-round" class="w-4 h-4"></i>
+              <span data-i18n="pwd_recovery_badge">Password Recovery</span>
+            </div>
+            <h2 class="text-2xl font-bold font-institutional text-slate-900" data-i18n="pwd_reset_title">Reset Student Password</h2>
+            <p class="text-xs text-slate-500 mt-1" data-i18n="pwd_reset_subtitle">
+              Enter your Student ID or registered institutional email to reset your access.
+            </p>
+          </div>
+
+          <div id="forgot-info-card" class="bg-blue-50/70 border border-blue-200 rounded-lg p-3 text-xs text-blue-950 space-y-1">
+            <p class="font-semibold flex items-center gap-1.5">
+              <i data-lucide="shield-check" class="w-4 h-4 text-blue-800"></i> <span data-i18n="pwd_protocol_title">Institutional Recovery Protocol</span>
+            </p>
+            <p class="text-slate-600 leading-relaxed text-[11px]" data-i18n="pwd_protocol_student">
+              Password recovery requests are handled securely. Verification instructions will be sent to your registered academic email address or mobile contact. For assistance, contact <span class="font-mono font-bold text-blue-900">helpdesk@bput.ac.in</span>.
+            </p>
+          </div>
+
+          <form id="student-forgot-form" class="space-y-4">
+            <div>
+              <label for="forgot-identifier" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                <span data-i18n="pwd_identifier_label">Student ID or Email</span> <span class="text-rose-600">*</span>
+              </label>
+              <div class="relative">
+                <i data-lucide="mail" class="w-4 h-4 text-slate-400 absolute left-3 top-3"></i>
+                <input 
+                  type="text" 
+                  id="forgot-identifier" 
+                  placeholder="Enter Student ID or registered email"
+                  data-i18n-placeholder="pwd_identifier_placeholder"
+                  required
+                  class="w-full pl-9 pr-4 py-2.5 text-xs sm:text-sm border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900 focus:border-transparent transition"
+                >
+              </div>
+            </div>
+
+            <div id="forgot-result-box" class="hidden p-3 rounded text-xs"></div>
+
+            <button 
+              type="submit" 
+              id="btn-forgot-submit"
+              class="w-full bg-blue-950 hover:bg-blue-900 text-white font-semibold text-xs sm:text-sm py-2.5 px-4 rounded-lg shadow transition cursor-pointer"
+            >
+              <span data-i18n="btn_send_reset">Send Reset Instructions</span>
+            </button>
+          </form>
+
+          <div class="pt-4 border-t border-slate-200 text-center">
+            <button type="button" id="btn-forgot-back-to-login" class="text-xs font-bold text-blue-900 hover:text-blue-700 hover:underline flex items-center justify-center gap-1 mx-auto cursor-pointer">
+              <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i> <span data-i18n="btn_back_to_signin">Back to Sign In</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/vitals.js"></script>
+  <script src="js/sentry.js"></script>
+  <script src="js/clerk.js"></script>
+  <script src="js/features.js"></script>
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // If already authenticated as student, navigate straight to student portal
+      if (window.AuthService) {
+        const auth = window.AuthService.getAuth();
+        if (auth.isAuthenticated && auth.role === "student") {
+          window.location.replace("student.html");
+          return;
+        }
+      }
+
+      if (window.lucide) {
+        window.lucide.createIcons();
+      }
+
+      // Mount theme toggle & language switcher
+      if (window.CampusTheme) {
+        window.CampusTheme.mountToggle("student-theme-toggle");
+      }
+      if (window.CampusI18n) {
+        window.CampusI18n.mountSwitcher("student-lang-switcher");
+      }
+
+      // UI Elements
+      const viewLogin = document.getElementById("view-student-login");
+      const viewForgot = document.getElementById("view-student-forgot");
+
+      const btnGotoForgot = document.getElementById("btn-goto-forgot");
+      const btnForgotBack = document.getElementById("btn-forgot-back-to-login");
+
+      const loginForm = document.getElementById("student-login-form");
+      const forgotForm = document.getElementById("student-forgot-form");
+
+      const inputLoginId = document.getElementById("login-student-id");
+      const inputLoginPass = document.getElementById("login-password");
+      const btnTogglePass = document.getElementById("btn-toggle-login-pass");
+      const loginPassIcon = document.getElementById("login-pass-icon");
+
+      const loginErrorAlert = document.getElementById("login-error-alert");
+      const loginErrorMsg = document.getElementById("login-error-msg");
+      const btnLoginSubmit = document.getElementById("btn-login-submit");
+      const loginBtnText = document.getElementById("login-btn-text");
+
+      // Toggle views helper (Login <-> Forgot Password)
+      function switchView(target) {
+        viewLogin.classList.add("hidden");
+        viewForgot.classList.add("hidden");
+        target.classList.remove("hidden");
+        if (window.lucide) {
+        window.lucide.createIcons();
+      }
+      }
+
+      if (btnGotoForgot) btnGotoForgot.addEventListener("click", () => switchView(viewForgot));
+      if (btnForgotBack) btnForgotBack.addEventListener("click", () => switchView(viewLogin));
+
+      // Show/Hide password
+      if (btnTogglePass && inputLoginPass) {
+        btnTogglePass.addEventListener("click", () => {
+          const isPass = inputLoginPass.type === "password";
+          inputLoginPass.type = isPass ? "text" : "password";
+          loginPassIcon.setAttribute("data-lucide", isPass ? "eye-off" : "eye");
+          if (window.lucide) window.lucide.createIcons({ root: btnTogglePass });
+        });
+      }
+
+      // Handle Student Login Submission
+      if (loginForm) {
+        loginForm.addEventListener("submit", async (e) => {
+          e.preventDefault();
+          loginErrorAlert.classList.add("hidden");
+
+          const studentId = inputLoginId.value.trim();
+          const password = inputLoginPass.value.trim();
+
+          const consentCheck = document.getElementById("student-consent-check");
+          if (consentCheck && !consentCheck.checked) {
+            loginErrorMsg.textContent = "Please agree to the Terms of Service to continue.";
+            loginErrorAlert.classList.remove("hidden");
+            return;
+          }
+
+          // Button loading state
+          btnLoginSubmit.disabled = true;
+          loginBtnText.textContent = "Signing in...";
+
+          try {
+            const res = await window.AuthService.login(studentId, password, "student");
+            if (res.success) {
+              if (window.CampusUI && window.CampusUI.showToast) {
+                window.CampusUI.showToast("Authentication successful! Loading dashboard...", "success", 1500);
+              }
+              setTimeout(() => {
+                window.location.href = "student.html";
+              }, 400);
+            } else {
+              loginErrorMsg.textContent = res.error || "Authentication failed.";
+              loginErrorAlert.classList.remove("hidden");
+              btnLoginSubmit.disabled = false;
+              loginBtnText.textContent = "Sign In";
+            }
+          } catch (err) {
+            console.error("Login catch error:", err);
+            loginErrorMsg.textContent = "Error: " + (err.message || err);
+            loginErrorAlert.classList.remove("hidden");
+            btnLoginSubmit.disabled = false;
+            loginBtnText.textContent = "Sign In";
+          }
+        });
+      }
+
+      // Handle Forgot Password Submission
+      if (forgotForm) {
+        forgotForm.addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const identifier = document.getElementById("forgot-identifier").value.trim();
+          const resultBox = document.getElementById("forgot-result-box");
+          const btnSubmit = document.getElementById("btn-forgot-submit");
+
+          btnSubmit.disabled = true;
+          btnSubmit.textContent = "Processing...";
+
+          const res = await window.AuthService.requestPasswordReset(identifier, "student");
+          btnSubmit.disabled = false;
+          btnSubmit.textContent = "Send Reset Instructions";
+
+          resultBox.className = "bg-emerald-50 text-emerald-900 border border-emerald-200 p-3 rounded text-xs leading-relaxed";
+          resultBox.innerHTML = `<i data-lucide="check-circle" class="w-4 h-4 inline mr-1 text-emerald-600"></i> ${res.message}`;
+          resultBox.classList.remove("hidden");
+          if (window.lucide) window.lucide.createIcons({ root: resultBox });
+        });
+      }
+    });
+  </script>
+</body>
+</html>

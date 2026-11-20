@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    (function() {
+      try {
+        var savedTheme = localStorage.getItem('BPUT_THEME_PREFERENCE');
+        if (savedTheme === 'dark') {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      } catch(e) {}
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus Administration Gateway — Biju Patnaik University of Technology (BPUT)</title>
+  <meta name="description" content="Executive administration gateway for BPUT deans, proctors, hostel wardens, and administrative authorities. Authorized access only.">
+  <link rel="canonical" href="https://campus.bput.ac.in/admin-auth.html">
+
+  <!-- Favicon & Touch Icons -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="alternate icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="BPUT Digital Campus Platform">
+  <meta property="og:url" content="https://campus.bput.ac.in/admin-auth.html">
+  <meta property="og:title" content="Campus Administration Gateway — BPUT Digital Campus Platform">
+  <meta property="og:description" content="Executive administration gateway for BPUT deans, proctors, hostel wardens, and administrative authorities. Authorized access only.">
+  <meta property="og:image" content="https://campus.bput.ac.in/images/og-bput-campus.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="BPUT Campus Administration Executive Gateway Emblem">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Campus Administration Gateway — BPUT Digital Campus Platform">
+  <meta name="twitter:description" content="Executive administration gateway for BPUT deans, proctors, hostel wardens, and administrative authorities.">
+  <meta name="twitter:image" content="https://campus.bput.ac.in/images/og-bput-campus.png">
+  <meta name="twitter:image:alt" content="BPUT Campus Administration Executive Gateway Emblem">
+
+  <!-- Breadcrumb Schema JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Portal Home",
+        "item": "https://campus.bput.ac.in/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Campus Administration Gateway",
+        "item": "https://campus.bput.ac.in/admin-auth.html"
+      }
+    ]
+  }
+  </script>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              DEFAULT: '#0a192f',
+              50: '#f0f4f9',
+              100: '#d9e2ee',
+              200: '#b4c7dc',
+              300: '#83a4c4',
+              400: '#557fa7',
+              500: '#38638b',
+              600: '#2a4e72',
+              700: '#233f5d',
+              800: '#1b324b',
+              900: '#102238',
+              950: '#0a192f',
+            },
+            coral: {
+              DEFAULT: '#d94432',
+              50: '#fff5f4',
+              100: '#feece9',
+              200: '#fdd9d4',
+              300: '#fab7ad',
+              400: '#f48879',
+              500: '#ea5c49',
+              600: '#d94432',
+              700: '#b63424',
+              800: '#962e21',
+              900: '#7c2b21',
+              950: '#43130d',
+            },
+            cream: {
+              DEFAULT: '#faf8f5',
+              50: '#fdfbf7',
+              100: '#faf8f5',
+              200: '#f4efe6',
+              300: '#ede4d3',
+              400: '#ded0b8',
+              500: '#cbba9a',
+              600: '#b8a381',
+              700: '#998466',
+              800: '#7d6c53',
+              900: '#675844',
+              950: '#372d22',
+            },
+            univ: {
+              navy: '#0a192f',
+              blue: '#162f52',
+              coral: '#d94432',
+              cream: '#faf8f5',
+              gold: '#d94432',
+              accent: '#d94432'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans">
+
+  <!-- Topmost Institutional Announcement Ribbon & Cross-Portal Navigation -->
+  <header class="bg-slate-950 border-b border-amber-600/40 text-white text-xs py-2 px-4 sm:px-12 flex flex-wrap justify-between items-center gap-2">
+    <div class="flex items-center space-x-2 sm:space-x-3">
+      <span class="bg-amber-500/20 text-amber-300 font-semibold px-2 py-0.5 rounded text-[11px] border border-amber-500/40" data-i18n="executive_gateway">
+        EXECUTIVE GATEWAY
+      </span>
+      <span class="text-slate-300 truncate max-w-[200px] sm:max-w-none" data-i18n="proctorial_subhead">BPUT • Office of Dean & Proctorial Board</span>
+    </div>
+    <div class="flex items-center space-x-2 text-xs">
+      <div id="admin-theme-toggle" class="inline-flex"></div>
+      <div id="admin-lang-switcher" class="inline-flex"></div>
+      <a href="index.html" class="text-slate-300 hover:text-white flex items-center gap-1.5 px-2.5 py-1 rounded hover:bg-white/10 transition">
+        <i data-lucide="home" class="w-3.5 h-3.5 text-amber-400"></i>
+        <span data-i18n="main_portal">Main Portal</span>
+      </a>
+      <a href="student-auth.html" class="text-slate-300 hover:text-blue-300 flex items-center gap-1.5 px-2.5 py-1 rounded hover:bg-white/10 transition">
+        <i data-lucide="graduation-cap" class="w-3.5 h-3.5 text-blue-400"></i>
+        <span class="hidden sm:inline" data-i18n="student_login_btn">Student Login</span>
+        <span class="sm:hidden" data-i18n="student_login_btn">Student</span>
+      </a>
+      <span class="text-amber-300 font-bold bg-white/15 border border-amber-500/40 px-2.5 py-1 rounded flex items-center gap-1.5">
+        <i data-lucide="shield" class="w-3.5 h-3.5 text-amber-400"></i>
+        <span data-i18n="admin_login_btn">Admin Login</span>
+      </span>
+    </div>
+  </header>
+
+  <!-- Breadcrumb Navigation Bar -->
+  <nav aria-label="Breadcrumb" class="bg-slate-900 border-b border-slate-800 py-2 px-4 sm:px-12 text-xs">
+    <div class="max-w-7xl mx-auto flex items-center space-x-2 text-slate-400">
+      <a href="index.html" class="hover:text-amber-300 flex items-center gap-1 transition">
+        <i data-lucide="home" class="w-3.5 h-3.5 text-amber-500"></i>
+        <span>Portal Home</span>
+      </a>
+      <i data-lucide="chevron-right" class="w-3 h-3 text-slate-600"></i>
+      <span class="font-semibold text-slate-200" aria-current="page">Campus Administration Gateway</span>
+    </div>
+  </nav>
+
+  <!-- Main Administrative Auth Container -->
+  <main class="flex-1 flex items-center justify-center p-3 sm:p-6 lg:p-10">
+    <div class="max-w-5xl w-full grid grid-cols-1 lg:grid-cols-12 bg-slate-950 rounded-xl shadow-2xl border border-slate-800 overflow-hidden">
+      
+      <!-- Left Column: Administrative Security & Authority Panel -->
+      <div class="lg:col-span-5 bg-gradient-to-br from-slate-900 via-slate-950 to-blue-950 text-white p-5 sm:p-7 lg:p-10 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-slate-800 relative overflow-hidden">
+        
+        <!-- Subtle Crest Watermark Background -->
+        <div class="absolute -right-8 -bottom-8 opacity-5 pointer-events-none select-none">
+          <div class="w-56 h-56 border-8 border-white rounded-full flex items-center justify-center text-6xl font-institutional font-bold">
+            BPUT
+          </div>
+        </div>
+
+        <div class="relative z-10 space-y-4 lg:space-y-6">
+          <!-- BPUT Crest and Official Desk Badge -->
+          <div class="flex items-center space-x-3">
+            <div class="w-12 h-12 sm:w-14 sm:h-14 bg-amber-500/10 text-amber-400 rounded-full flex items-center justify-center font-institutional font-bold text-lg sm:text-xl crest-ring border border-amber-500/60 shadow-lg shrink-0">
+              BPUT
+            </div>
+            <div>
+              <span class="text-[10px] uppercase font-bold tracking-widest text-amber-400 flex items-center gap-1">
+                <i data-lucide="shield-check" class="w-3 h-3"></i> Proctorial Board
+              </span>
+              <h1 class="font-institutional text-sm sm:text-base font-bold text-white tracking-tight leading-snug">
+                Biju Patnaik University of Technology
+              </h1>
+              <p class="text-[11px] sm:text-xs text-slate-400">Rourkela, Odisha</p>
+            </div>
+          </div>
+
+          <div class="pt-3 lg:pt-4 border-t border-slate-800 space-y-2">
+            <div class="inline-flex items-center gap-1.5 text-xs font-semibold text-amber-400 bg-amber-500/10 px-2.5 py-0.5 rounded border border-amber-500/20">
+              <i data-lucide="lock" class="w-3 h-3"></i>
+              <span>Restricted Administrative Access</span>
+            </div>
+            <h2 class="text-base sm:text-xl font-bold font-institutional text-white leading-tight">
+              Campus Administration Console
+            </h2>
+            <p class="text-xs sm:text-sm text-slate-400 leading-relaxed font-normal hidden sm:block">
+              Authorized university desk for student gate passes, leave sanctioning, hostel dispatch, fee grievance responses, and university circulars.
+            </p>
+          </div>
+
+          <!-- Executive Authority Highlights -->
+          <div class="grid grid-cols-2 lg:grid-cols-1 gap-2 pt-2 text-xs text-slate-300">
+            <div class="flex items-center space-x-2.5">
+              <div class="w-6 h-6 rounded bg-amber-500/20 text-amber-400 flex items-center justify-center shrink-0">
+                <i data-lucide="check-square" class="w-3.5 h-3.5"></i>
+              </div>
+              <span class="text-[11px] sm:text-xs font-medium">Gate Pass & Leave Approvals</span>
+            </div>
+            <div class="flex items-center space-x-2.5">
+              <div class="w-6 h-6 rounded bg-blue-500/20 text-blue-400 flex items-center justify-center shrink-0">
+                <i data-lucide="wrench" class="w-3.5 h-3.5"></i>
+              </div>
+              <span class="text-[11px] sm:text-xs font-medium">Hostel Maintenance Dispatch</span>
+            </div>
+            <div class="flex items-center space-x-2.5">
+              <div class="w-6 h-6 rounded bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
+                <i data-lucide="message-square" class="w-3.5 h-3.5"></i>
+              </div>
+              <span class="text-[11px] sm:text-xs font-medium">Finance & Inquiries Desk</span>
+            </div>
+            <div class="flex items-center space-x-2.5">
+              <div class="w-6 h-6 rounded bg-rose-500/20 text-rose-400 flex items-center justify-center shrink-0">
+                <i data-lucide="megaphone" class="w-3.5 h-3.5"></i>
+              </div>
+              <span class="text-[11px] sm:text-xs font-medium">Campus Circulars & Notices</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Security Advisory Notice -->
+        <div class="relative z-10 pt-4 mt-4 border-t border-slate-800 text-[11px] text-slate-400 hidden lg:flex items-center justify-between">
+          <span>Security Protocol: TLS 1.3 Encrypted</span>
+          <span class="text-amber-400/90 font-medium">BPUT Authority Desk</span>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Administrative Authentication Form -->
+      <div class="lg:col-span-7 bg-white text-slate-900 p-5 sm:p-8 lg:p-10 flex flex-col justify-center">
+
+        <!-- ========================================== -->
+        <!-- VIEW 1: ADMIN LOGIN                        -->
+        <!-- ========================================== -->
+        <div id="view-admin-login" class="space-y-5">
+          <div>
+            <div class="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-900 bg-amber-50 px-2.5 py-1 rounded border border-amber-200 mb-2">
+              <i data-lucide="shield" class="w-4 h-4 text-amber-700"></i>
+              <span class="text-amber-900" data-i18n="admin_portal">Campus Administration</span>
+            </div>
+            <h2 class="text-2xl font-bold font-institutional text-slate-900" data-i18n="auth_welcome_back">Welcome Back</h2>
+            <p class="text-xs text-slate-500 mt-1" data-i18n="admin_auth_subtitle">
+              Authorized personnel can sign in to manage campus services.
+            </p>
+          </div>
+
+          <!-- Login Error Alert Container -->
+          <div id="admin-login-error-alert" class="hidden bg-rose-50 border-l-4 border-rose-600 p-3 rounded text-xs text-rose-800 flex items-start gap-2">
+            <i data-lucide="alert-circle" class="w-4 h-4 text-rose-600 shrink-0 mt-0.5"></i>
+            <span id="admin-login-error-msg">Invalid administrator credentials.</span>
+          </div>
+
+          <!-- Admin Login Form -->
+          <form id="admin-login-form" class="space-y-4">
+            <div>
+              <label for="admin-login-id" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                <span data-i18n="admin_id_label">Administrator ID</span> <span class="text-rose-600">*</span>
+              </label>
+              <div class="relative">
+                <i data-lucide="user-check" class="w-4 h-4 text-slate-400 absolute left-3 top-3"></i>
+                <input 
+                  type="text" 
+                  id="admin-login-id" 
+                  name="adminId" 
+                  placeholder="Enter Administrator ID" 
+                  data-i18n-placeholder="admin_id_placeholder"
+                  required
+                  class="w-full pl-9 pr-4 py-2.5 text-xs sm:text-sm border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900 focus:border-transparent transition"
+                >
+              </div>
+            </div>
+
+            <div>
+              <div class="flex items-center justify-between mb-1.5">
+                <label for="admin-login-password" class="block text-xs font-bold uppercase tracking-wider text-slate-700">
+                  <span data-i18n="password_label">Password</span> <span class="text-rose-600">*</span>
+                </label>
+                <button type="button" id="btn-admin-goto-forgot" class="text-xs font-semibold text-blue-900 hover:text-blue-700 hover:underline" data-i18n="forgot_password">
+                  Forgot password?
+                </button>
+              </div>
+              <div class="relative">
+                <i data-lucide="lock" class="w-4 h-4 text-slate-400 absolute left-3 top-3"></i>
+                <input 
+                  type="password" 
+                  id="admin-login-password" 
+                  name="password" 
+                  placeholder="Enter password" 
+                  data-i18n-placeholder="password_placeholder"
+                  required
+                  class="w-full pl-9 pr-10 py-2.5 text-xs sm:text-sm border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900 focus:border-transparent transition"
+                >
+                <button type="button" id="btn-toggle-admin-pass" class="absolute right-3 top-2.5 text-slate-400 hover:text-slate-600 focus:outline-none" title="Toggle password visibility">
+                  <i data-lucide="eye" id="admin-pass-icon" class="w-4 h-4"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between pt-1">
+              <label class="flex items-center text-xs text-slate-600 cursor-pointer">
+                <input type="checkbox" id="admin-login-remember" class="w-4 h-4 rounded border-slate-300 text-blue-900 focus:ring-blue-800">
+                <span class="ml-2" data-i18n="remember_me">Remember me</span>
+              </label>
+            </div>
+
+            <!-- Form Consent & Terms Acceptance -->
+            <div class="flex items-start gap-2 pt-1 border-t border-slate-100">
+              <input type="checkbox" id="admin-consent-check" class="mt-0.5 rounded border-slate-300 text-blue-900 focus:ring-blue-800 cursor-pointer">
+              <label for="admin-consent-check" class="text-[11px] text-slate-600 leading-snug cursor-pointer select-none">
+                I confirm authorized university personnel status and agree to BPUT's <a href="terms.html" class="text-blue-900 font-semibold underline">Terms of Service</a> and <a href="privacy.html" class="text-blue-900 font-semibold underline">Privacy Policy</a>.
+              </label>
+            </div>
+
+            <button 
+              type="submit" 
+              id="btn-admin-login-submit" 
+              class="w-full bg-blue-950 hover:bg-blue-900 text-white font-semibold text-xs sm:text-sm py-3 px-4 rounded-lg shadow-md transition flex items-center justify-center gap-2 group cursor-pointer"
+            >
+              <span id="admin-login-btn-text" data-i18n="btn_sign_in">Sign In</span>
+              <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-0.5 transition"></i>
+            </button>
+          </form>
+
+          <!-- Controlled Administrative Account Policy Notice -->
+          <div class="pt-4 border-t border-slate-200">
+            <div class="bg-slate-50 border border-slate-200 rounded-lg p-3 space-y-2">
+              <div class="flex items-start gap-2">
+                <i data-lucide="info" class="w-4 h-4 text-slate-500 mt-0.5 shrink-0"></i>
+                <div class="text-xs text-slate-600 leading-relaxed">
+                  <p class="font-semibold text-slate-800">Controlled Institutional Enrollment</p>
+                  <p class="mt-0.5" data-i18n="admin_policy_note">
+                    Administrative accounts are issued by the university. Contact the system administrator if you require access.
+                  </p>
+                </div>
+              </div>
+              <button 
+                type="button" 
+                id="btn-contact-admin-modal" 
+                class="w-full bg-white hover:bg-slate-100 text-slate-800 border border-slate-300 text-xs font-semibold py-2 px-3 rounded shadow-sm flex items-center justify-center gap-1.5 transition cursor-pointer"
+              >
+                <i data-lucide="phone-call" class="w-3.5 h-3.5 text-blue-900"></i>
+                <span data-i18n="admin_contact_desk_btn">Contact Administration Desk</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Switch to Student Auth -->
+          <div class="pt-3 border-t border-slate-200">
+            <div class="bg-blue-50 border border-blue-200 rounded-lg p-2.5 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs">
+              <span class="text-blue-950 font-medium" data-i18n="student_service_question">Looking for Student Services?</span>
+              <a href="student-auth.html" class="font-bold text-white bg-blue-900 hover:bg-blue-800 px-3 py-1.5 rounded-lg transition flex items-center gap-1.5 shadow-sm">
+                <i data-lucide="graduation-cap" class="w-3.5 h-3.5 text-amber-300"></i>
+                <span data-i18n="student_service_link">Student Portal &rarr;</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- VIEW 2: FORGOT PASSWORD RECOVERY           -->
+        <!-- ========================================== -->
+        <div id="view-admin-forgot" class="hidden space-y-6">
+          <div>
+            <div class="inline-flex items-center gap-1.5 text-xs font-semibold text-amber-900 bg-amber-50 px-2.5 py-1 rounded border border-amber-200 mb-2">
+              <i data-lucide="key-round" class="w-4 h-4 text-amber-700"></i>
+              <span data-i18n="pwd_recovery_badge">Credential Recovery</span>
+            </div>
+            <h2 class="text-2xl font-bold font-institutional text-slate-900" data-i18n="pwd_admin_reset_title">Administrator Recovery</h2>
+            <p class="text-xs text-slate-500 mt-1">
+              Authorized personnel credential verification protocol.
+            </p>
+          </div>
+
+          <div class="bg-amber-50/70 border border-amber-200 rounded-lg p-3 text-xs text-amber-950 space-y-1">
+            <p class="font-semibold flex items-center gap-1.5">
+              <i data-lucide="shield-alert" class="w-4 h-4 text-amber-800"></i> <span data-i18n="pwd_protocol_title">Institutional Recovery Protocol</span>
+            </p>
+            <p class="text-slate-700 leading-relaxed text-[11px]" data-i18n="pwd_protocol_admin">
+              Administrative credentials are authenticated through the university directory. Administrative password resets require identity verification through the Office of Dean & Proctorial Board.
+            </p>
+          </div>
+
+          <form id="admin-forgot-form" class="space-y-4">
+            <div>
+              <label for="admin-forgot-identifier" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                <span data-i18n="pwd_admin_identifier_label">Administrator ID or Official Email</span> <span class="text-rose-600">*</span>
+              </label>
+              <div class="relative">
+                <i data-lucide="mail" class="w-4 h-4 text-slate-400 absolute left-3 top-3"></i>
+                <input 
+                  type="text" 
+                  id="admin-forgot-identifier" 
+                  placeholder="Enter Administrator ID or email"
+                  data-i18n-placeholder="pwd_admin_identifier_placeholder"
+                  required
+                  class="w-full pl-9 pr-4 py-2.5 text-xs sm:text-sm border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900 focus:border-transparent transition"
+                >
+              </div>
+            </div>
+
+            <div id="admin-forgot-result-box" class="hidden p-3 rounded text-xs"></div>
+
+            <button 
+              type="submit" 
+              id="btn-admin-forgot-submit" 
+              class="w-full bg-blue-950 hover:bg-blue-900 text-white font-semibold text-xs sm:text-sm py-2.5 px-4 rounded-lg shadow transition cursor-pointer"
+            >
+              <span data-i18n="btn_send_admin_verify">Send Verification Link</span>
+            </button>
+          </form>
+
+          <div class="pt-4 border-t border-slate-200 text-center">
+            <button type="button" id="btn-admin-forgot-back" class="text-xs font-bold text-blue-900 hover:text-blue-700 hover:underline flex items-center justify-center gap-1 mx-auto cursor-pointer">
+              <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i> <span data-i18n="btn_back_to_signin">Back to Sign In</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/vitals.js"></script>
+  <script src="js/sentry.js"></script>
+  <script src="js/clerk.js"></script>
+  <script src="js/features.js"></script>
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // If already authenticated as admin, navigate straight to admin console
+      if (window.AuthService) {
+        const auth = window.AuthService.getAuth();
+        if (auth.isAuthenticated && auth.role === "admin") {
+          window.location.replace("admin.html");
+          return;
+        }
+      }
+
+      if (window.lucide) {
+        window.lucide.createIcons();
+      }
+
+      // Mount theme toggle & language switcher
+      if (window.CampusTheme) {
+        window.CampusTheme.mountToggle("admin-theme-toggle");
+      }
+      if (window.CampusI18n) {
+        window.CampusI18n.mountSwitcher("admin-lang-switcher");
+      }
+
+      // UI Elements
+      const viewLogin = document.getElementById("view-admin-login");
+      const viewForgot = document.getElementById("view-admin-forgot");
+
+      const btnGotoForgot = document.getElementById("btn-admin-goto-forgot");
+      const btnForgotBack = document.getElementById("btn-admin-forgot-back");
+      const btnContactModal = document.getElementById("btn-contact-admin-modal");
+
+      const loginForm = document.getElementById("admin-login-form");
+      const forgotForm = document.getElementById("admin-forgot-form");
+
+      const inputAdminId = document.getElementById("admin-login-id");
+      const inputAdminPass = document.getElementById("admin-login-password");
+      const btnTogglePass = document.getElementById("btn-toggle-admin-pass");
+      const passIcon = document.getElementById("admin-pass-icon");
+
+      const errorAlert = document.getElementById("admin-login-error-alert");
+      const errorMsg = document.getElementById("admin-login-error-msg");
+      const btnSubmit = document.getElementById("btn-admin-login-submit");
+      const btnText = document.getElementById("admin-login-btn-text");
+
+      function switchView(target) {
+        viewLogin.classList.add("hidden");
+        viewForgot.classList.add("hidden");
+        target.classList.remove("hidden");
+        if (window.lucide) {
+        window.lucide.createIcons();
+      }
+      }
+
+      if (btnGotoForgot) btnGotoForgot.addEventListener("click", () => switchView(viewForgot));
+      if (btnForgotBack) btnForgotBack.addEventListener("click", () => switchView(viewLogin));
+
+      // Show/Hide password
+      if (btnTogglePass && inputAdminPass) {
+        btnTogglePass.addEventListener("click", () => {
+          const isPass = inputAdminPass.type === "password";
+          inputAdminPass.type = isPass ? "text" : "password";
+          passIcon.setAttribute("data-lucide", isPass ? "eye-off" : "eye");
+          if (window.lucide) window.lucide.createIcons({ root: btnTogglePass });
+        });
+      }
+
+      // Contact Administration Modal
+      if (btnContactModal) {
+        btnContactModal.addEventListener("click", () => {
+          const contactInfoHtml = `
+            <div class="space-y-4">
+              <div class="bg-amber-50 border border-amber-200 rounded p-3 text-xs text-amber-900 leading-relaxed">
+                <p class="font-bold">Administrative Role Assignment Policy</p>
+                <p class="mt-1">
+                  University staff, wardens, proctors, and faculty advisors must have their administrative roles provisioned through the BPUT IT Services Cell with approval from the Office of Dean (Academic Affairs / Student Affairs).
+                </p>
+              </div>
+
+              <div class="space-y-2 text-xs">
+                <div class="flex justify-between border-b border-slate-200 pb-2">
+                  <span class="font-semibold text-slate-700">Dean (Student Affairs):</span>
+                  <span class="font-mono text-slate-800">+91 661 2489243 / dean.sa@bput.ac.in</span>
+                </div>
+                <div class="flex justify-between border-b border-slate-200 pb-2">
+                  <span class="font-semibold text-slate-700">Campus IT Control Desk:</span>
+                  <span class="font-mono text-slate-800">+91 661 2489244 / ithelpdesk@bput.ac.in</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="font-semibold text-slate-700">Office Location:</span>
+                  <span class="text-slate-800">Administrative Block, 1st Floor, BPUT Rourkela</span>
+                </div>
+              </div>
+            </div>
+          `;
+
+          CampusUI.openModal({
+            title: "Contact Campus Administration Desk",
+            subtitle: "Inquiries regarding administrative accounts and privileges",
+            contentHtml: contactInfoHtml,
+            cancelText: "Close"
+          });
+        });
+      }
+
+      // Login Submission
+      if (loginForm) {
+        loginForm.addEventListener("submit", async (e) => {
+          e.preventDefault();
+          errorAlert.classList.add("hidden");
+
+          const adminId = inputAdminId.value.trim();
+          const password = inputAdminPass.value.trim();
+
+          const consentCheck = document.getElementById("admin-consent-check");
+          if (consentCheck && !consentCheck.checked) {
+            errorMsg.textContent = "Please agree to the Terms of Service to continue.";
+            errorAlert.classList.remove("hidden");
+            btnSubmit.disabled = false;
+            btnText.textContent = "Sign In";
+            return;
+          }
+
+          btnSubmit.disabled = true;
+          btnText.textContent = "Signing in...";
+
+          try {
+            const res = await window.AuthService.login(adminId, password, "admin");
+            if (res.success) {
+              if (window.CampusUI && window.CampusUI.showToast) {
+                window.CampusUI.showToast("Administrator credentials verified! Opening console...", "success", 1500);
+              }
+              setTimeout(() => {
+                window.location.href = "admin.html";
+              }, 400);
+            } else {
+              errorMsg.textContent = res.error || "Authentication failed.";
+              errorAlert.classList.remove("hidden");
+              btnSubmit.disabled = false;
+              btnText.textContent = "Sign In";
+            }
+          } catch (err) {
+            errorMsg.textContent = "An error occurred during authentication.";
+            errorAlert.classList.remove("hidden");
+            btnSubmit.disabled = false;
+            btnText.textContent = "Sign In";
+          }
+        });
+      }
+
+      // Forgot Password
+      if (forgotForm) {
+        forgotForm.addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const identifier = document.getElementById("admin-forgot-identifier").value.trim();
+          const resultBox = document.getElementById("admin-forgot-result-box");
+          const btnForgotSubmit = document.getElementById("btn-admin-forgot-submit");
+
+          btnForgotSubmit.disabled = true;
+          btnForgotSubmit.textContent = "Verifying...";
+
+          const res = await window.AuthService.requestPasswordReset(identifier, "admin");
+          btnForgotSubmit.disabled = false;
+          btnForgotSubmit.textContent = "Send Verification Link";
+
+          resultBox.className = "bg-emerald-50 text-emerald-900 border border-emerald-200 p-3 rounded text-xs leading-relaxed";
+          resultBox.innerHTML = `<i data-lucide="check-circle" class="w-4 h-4 inline mr-1 text-emerald-600"></i> ${res.message}`;
+          resultBox.classList.remove("hidden");
+          if (window.lucide) window.lucide.createIcons({ root: resultBox });
+        });
+      }
+    });
+  </script>
+</body>
+</html>

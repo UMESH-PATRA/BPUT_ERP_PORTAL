@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    (function() {
+      try {
+        var savedTheme = localStorage.getItem('BPUT_THEME_PREFERENCE');
+        if (savedTheme === 'dark') {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      } catch(e) {}
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 Page Not Found — BPUT Digital Campus Platform</title>
+  <meta name="description" content="The requested campus portal page could not be located on the BPUT Digital Campus Platform. Access student services, admin consoles, or official university contacts.">
+  <link rel="canonical" href="https://campus.bput.ac.in/404.html">
+  <meta name="robots" content="noindex, follow">
+
+  <!-- Favicon & App Icons -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="alternate icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="BPUT Digital Campus Platform">
+  <meta property="og:url" content="https://campus.bput.ac.in/404.html">
+  <meta property="og:title" content="404 Page Not Found — BPUT Digital Campus Platform">
+  <meta property="og:description" content="The requested campus portal page could not be located. Access student services, admin consoles, or official university contacts.">
+  <meta property="og:image" content="https://campus.bput.ac.in/images/og-bput-campus.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="BPUT Digital Campus Platform Official Seal">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="404 Page Not Found — BPUT Digital Campus Platform">
+  <meta name="twitter:description" content="The requested campus portal page could not be located. Access student services, admin consoles, or official university contacts.">
+  <meta name="twitter:image" content="https://campus.bput.ac.in/images/og-bput-campus.png">
+  <meta name="twitter:image:alt" content="BPUT Digital Campus Platform Official Seal">
+
+  <!-- Breadcrumb Schema JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Portal Home",
+        "item": "https://campus.bput.ac.in/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "404 Page Not Found",
+        "item": "https://campus.bput.ac.in/404.html"
+      }
+    ]
+  }
+  </script>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              DEFAULT: '#0a192f',
+              50: '#f0f4f9',
+              100: '#d9e2ee',
+              200: '#b4c7dc',
+              300: '#83a4c4',
+              400: '#557fa7',
+              500: '#38638b',
+              600: '#2a4e72',
+              700: '#233f5d',
+              800: '#1b324b',
+              900: '#102238',
+              950: '#0a192f',
+            },
+            coral: {
+              DEFAULT: '#d94432',
+              50: '#fff5f4',
+              100: '#feece9',
+              200: '#fdd9d4',
+              300: '#fab7ad',
+              400: '#f48879',
+              500: '#ea5c49',
+              600: '#d94432',
+              700: '#b63424',
+              800: '#962e21',
+              900: '#7c2b21',
+              950: '#43130d',
+            },
+            cream: {
+              DEFAULT: '#faf8f5',
+              50: '#fdfbf7',
+              100: '#faf8f5',
+              200: '#f4efe6',
+              300: '#ede4d3',
+              400: '#ded0b8',
+              500: '#cbba9a',
+              600: '#b8a381',
+              700: '#998466',
+              800: '#7d6c53',
+              900: '#675844',
+              950: '#372d22',
+            },
+            univ: {
+              navy: '#0a192f',
+              blue: '#162f52',
+              coral: '#d94432',
+              cream: '#faf8f5',
+              gold: '#d94432',
+              accent: '#d94432'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col font-sans">
+
+  <!-- 1. Topmost Institutional Accreditation Ribbon -->
+  <div class="institutional-ribbon text-white text-xs py-2 px-4 sm:px-12 flex flex-wrap justify-between items-center gap-2">
+    <div class="flex items-center space-x-2 sm:space-x-3">
+      <span class="text-slate-300 truncate" data-i18n="univ_tagline">State University of Technology, Govt. of Odisha • Estd. 2002</span>
+    </div>
+    <div class="flex items-center space-x-2 sm:space-x-3 text-[11px]">
+      <div id="error-theme-toggle" class="inline-flex"></div>
+      <div id="error-lang-switcher" class="inline-flex"></div>
+      <span class="text-slate-300 hidden sm:flex items-center gap-1">
+        <i data-lucide="phone" class="w-3 h-3 text-amber-400"></i> <span>+91 661 2489244</span>
+      </span>
+      <span class="text-amber-300 font-semibold flex items-center gap-1">
+        <i data-lucide="shield-alert" class="w-3 h-3"></i> <span>24x7 Security: 1800-345-6789</span>
+      </span>
+    </div>
+  </div>
+
+  <!-- 2. University Brand Header -->
+  <header class="bg-white border-b border-slate-200 shadow-sm py-3 px-4 sm:px-12">
+    <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
+      <a href="index.html" class="flex items-center space-x-3 sm:space-x-4 group">
+        <div class="w-12 h-12 bg-blue-950 text-amber-400 rounded-full flex items-center justify-center font-institutional font-bold text-xl crest-ring border-2 border-amber-400/80 shadow-md shrink-0">
+          BPUT
+        </div>
+        <div>
+          <span class="font-institutional text-sm sm:text-xl font-extrabold text-blue-950 tracking-tight leading-snug group-hover:text-blue-900 transition block">
+            BIJU PATNAIK UNIVERSITY OF TECHNOLOGY, ODISHA
+          </span>
+          <p class="text-[11px] text-slate-600 font-medium">
+            Rourkela - 769015 • Digital Campus Platform
+          </p>
+        </div>
+      </a>
+      <div class="flex items-center space-x-2">
+        <a href="index.html" class="bg-blue-950 hover:bg-blue-900 text-white text-xs font-semibold px-3.5 py-2 rounded shadow flex items-center gap-1.5 transition">
+          <i data-lucide="home" class="w-3.5 h-3.5 text-amber-400"></i>
+          <span>Portal Home</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 3. Semantic Breadcrumb Navigation -->
+  <nav aria-label="Breadcrumb" class="bg-slate-100 border-b border-slate-200 py-2.5 px-4 sm:px-12 text-xs">
+    <div class="max-w-7xl mx-auto flex items-center space-x-2 text-slate-500">
+      <a href="index.html" class="hover:text-blue-900 flex items-center gap-1 transition">
+        <i data-lucide="home" class="w-3.5 h-3.5 text-amber-500"></i>
+        <span>Portal Home</span>
+      </a>
+      <i data-lucide="chevron-right" class="w-3 h-3 text-slate-400"></i>
+      <span class="font-semibold text-slate-800" aria-current="page">404 Error: Page Not Found</span>
+    </div>
+  </nav>
+
+  <!-- 4. Main 404 Institutional Content Container -->
+  <main class="flex-1 max-w-4xl mx-auto w-full px-4 sm:px-6 py-10 sm:py-16 flex flex-col items-center justify-center text-center">
+    
+    <!-- 404 Crest Badge -->
+    <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-blue-950 text-amber-400 border-4 border-amber-400/80 flex items-center justify-center font-institutional font-extrabold text-2xl sm:text-3xl shadow-xl mb-6">
+      404
+    </div>
+
+    <!-- ONE clear heading per page -->
+    <h1 class="text-2xl sm:text-4xl font-extrabold font-institutional text-blue-950 tracking-tight mb-3">
+      404 — Institutional Page Not Found
+    </h1>
+
+    <p class="text-sm sm:text-base text-slate-600 max-w-2xl leading-relaxed mb-8">
+      The requested university service, circular file, or URL route could not be located. The link may have expired, changed during our term update, or requires institutional authorization.
+    </p>
+
+    <!-- Institutional Navigation Gateways -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 w-full max-w-3xl mb-10 text-left">
+      
+      <!-- Card 1: Portal Home -->
+      <a href="index.html" class="p-4 rounded-xl border border-slate-200 bg-white hover:border-blue-900 hover:shadow-md transition group">
+        <div class="w-9 h-9 rounded-lg bg-blue-50 text-blue-900 flex items-center justify-center mb-2.5 group-hover:bg-blue-950 group-hover:text-amber-400 transition">
+          <i data-lucide="home" class="w-5 h-5"></i>
+        </div>
+        <h2 class="text-sm font-bold text-slate-900 group-hover:text-blue-900 transition">Portal Home</h2>
+        <p class="text-xs text-slate-500 mt-1">Return to official announcements, notices & directory.</p>
+      </a>
+
+      <!-- Card 2: Student Portal -->
+      <a href="student-auth.html" class="p-4 rounded-xl border border-slate-200 bg-white hover:border-blue-900 hover:shadow-md transition group">
+        <div class="w-9 h-9 rounded-lg bg-amber-50 text-amber-800 flex items-center justify-center mb-2.5 group-hover:bg-amber-500 group-hover:text-slate-950 transition">
+          <i data-lucide="graduation-cap" class="w-5 h-5"></i>
+        </div>
+        <h2 class="text-sm font-bold text-slate-900 group-hover:text-blue-900 transition">Student Portal</h2>
+        <p class="text-xs text-slate-500 mt-1">Access gate passes, leaves, hostel desk & exams.</p>
+      </a>
+
+      <!-- Card 3: Campus Administration -->
+      <a href="admin-auth.html" class="p-4 rounded-xl border border-slate-200 bg-white hover:border-blue-900 hover:shadow-md transition group">
+        <div class="w-9 h-9 rounded-lg bg-slate-100 text-slate-800 flex items-center justify-center mb-2.5 group-hover:bg-slate-900 group-hover:text-white transition">
+          <i data-lucide="shield" class="w-5 h-5"></i>
+        </div>
+        <h2 class="text-sm font-bold text-slate-900 group-hover:text-blue-900 transition">Administration Console</h2>
+        <p class="text-xs text-slate-500 mt-1">Dean, Proctorial Board & Hostel Warden sign-in.</p>
+      </a>
+
+    </div>
+
+    <!-- Official Helpdesk Box -->
+    <div class="w-full max-w-2xl bg-blue-50/80 border border-blue-200 rounded-xl p-4 sm:p-5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
+      <div class="flex items-center gap-3 text-left">
+        <div class="w-10 h-10 rounded-full bg-blue-950 text-amber-400 flex items-center justify-center shrink-0">
+          <i data-lucide="help-circle" class="w-5 h-5"></i>
+        </div>
+        <div>
+          <p class="font-bold text-blue-950">Need Academic or Technical Assistance?</p>
+          <p class="text-slate-600">Contact University Computer Centre & IT Helpdesk</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2">
+        <a href="mailto:helpdesk@bput.ac.in" class="bg-blue-950 hover:bg-blue-900 text-white font-semibold px-4 py-2 rounded-lg transition">
+          helpdesk@bput.ac.in
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- 5. University Footer -->
+  <footer class="bg-slate-900 text-white text-xs border-t border-slate-800 py-6 px-4 sm:px-12 mt-auto">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-slate-400">
+      <p>© 2026 Biju Patnaik University of Technology (BPUT), Odisha. All Rights Reserved.</p>
+      <div class="flex items-center space-x-4 text-[11px]">
+        <a href="index.html#location-section" class="hover:text-amber-400 transition">Campus Location</a>
+        <span>•</span>
+        <a href="index.html#contacts-section" class="hover:text-amber-400 transition">Emergency Directory</a>
+        <span>•</span>
+        <a href="humans.txt" class="hover:text-amber-400 transition">Credits</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/theme.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/vitals.js"></script>
+  <script src="js/sentry.js"></script>
+  <script src="js/features.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      if (window.CampusTheme) {
+        window.CampusTheme.mountToggle("error-theme-toggle");
+      }
+      if (window.CampusI18n) {
+        window.CampusI18n.mountSwitcher("error-lang-switcher");
+      }
+      if (window.lucide) {
+        window.lucide.createIcons();
+      }
+    });
+  </script>
+</body>
+</html>

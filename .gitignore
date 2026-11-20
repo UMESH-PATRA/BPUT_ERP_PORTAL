@@ -1,0 +1,31 @@
+# Node
+node_modules/
+npm-debug.log*
+
+# Server
+server.js
+
+# Environment & Secrets (Never commit secrets)
+.env
+.env.*
+!.env.example
+
+# Temporary / Scratch
+scratch/
+scratch/*
+*.log
+__pycache__/
+.pytest_cache/
+
+# Agent / IDE tooling
+.agent/
+.agent/*
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+.idea/

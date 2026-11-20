@@ -1,0 +1,25 @@
+# robots.txt for Biju Patnaik University of Technology (BPUT) Digital Campus Platform
+# Custom Domain: https://campus.bput.ac.in
+
+User-agent: *
+Allow: /
+Allow: /index.html
+Allow: /student-auth.html
+Allow: /admin-auth.html
+Allow: /privacy.html
+Allow: /terms.html
+Allow: /cookies.html
+Allow: /licenses.txt
+Allow: /humans.txt
+Allow: /404.html
+Allow: /css/
+Allow: /js/
+Allow: /images/
+Allow: /favicon.svg
+Allow: /favicon.ico
+
+# Disallow authenticated private application views from crawler indexing
+Disallow: /student.html
+Disallow: /admin.html
+
+Sitemap: https://campus.bput.ac.in/sitemap.xml

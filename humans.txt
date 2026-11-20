@@ -1,0 +1,29 @@
+/* INSTITUTIONAL DETAILS */
+Legal Entity: Biju Patnaik University of Technology (BPUT), Odisha
+Statute: State Technological University established under BPUT Act, 2002 (Govt. of Odisha)
+Headquarters: Chhend Colony, Rourkela, Sundargarh, Odisha, PIN - 769015, India
+Official Tel: +91 (0661) 2484015 / +91 (0661) 2484018
+Toll-Free Helpline: 1800-345-6789
+Registrar & Grievance Officer: registrar@bput.ac.in
+IT Operations & Support: helpdesk@bput.ac.in
+Working Hours: Mon – Sat: 09:30 AM – 05:30 PM IST
+
+/* SOFTWARE ARCHITECTURE & CREDITS */
+Lead Architect: Palak Saha (B.Tech CSE, Final Year)
+Portal Contributors: Swayam Sidh Behera, Shreeja Mukherjee
+Proctorial Oversight: Office of the Dean (Student Affairs), BPUT
+
+/* THIRD-PARTY SDK AUDIT */
+* Tailwind CSS: UI Utility runtime (MIT License)
+* Lucide Icons: Vector iconography (ISC License)
+* Supabase JS Client: Encrypted realtime sync (MIT License)
+* Plus Jakarta Sans: Primary display font (SIL Open Font License 1.1)
+* Inter: User interface font (SIL Open Font License 1.1)
+* Zero Ad Trackers: No third-party marketing beacons or invasive profiling scripts are loaded.
+
+/* LICENSES & COMPLIANCE */
+Asset Register: https://campus.bput.ac.in/licenses.txt
+Privacy Policy: https://campus.bput.ac.in/privacy.html
+Terms of Service: https://campus.bput.ac.in/terms.html
+Cookie Policy: https://campus.bput.ac.in/cookies.html
+Last Updated: 2026/11/20
