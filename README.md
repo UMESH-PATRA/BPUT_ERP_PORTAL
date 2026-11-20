@@ -2,17 +2,8 @@
 
 A full-featured digital campus management system built for **Biju Patnaik University of Technology (BPUT), Odisha**.
 
-> Built for Hackathon 2026 — Team Palak Saha
-
 ---
-
-## 🌐 Live Demo
-
-👉 **[Open the Platform](https://krishnasaha11.github.io/bput-campus-platform/index.html)**
-
----
-
-## ✨ Features
+Features
 
 ### 🏠 Main Portal
 - University announcements & notices
@@ -52,11 +43,6 @@ A full-featured digital campus management system built for **Biju Patnaik Univer
 |---|---|
 | Student ID | `STD001` |
 | Password | `student001` |
-| Student ID | `230110` |
-| Password | `24010123456` |
-| Name | Palak Saha (CSE, Sem 5) |
-
-> Additional student IDs: `230101` to `230110` — password is their 11-digit enrollment number.
 
 ---
 
@@ -64,11 +50,12 @@ A full-featured digital campus management system built for **Biju Patnaik Univer
 
 | Layer | Technology |
 |-------|-----------|
-| Frontend | HTML5, CSS3, Tailwind CSS, Vanilla JS |
+| Frontend | HTML5, CSS,JS |
 | Icons | Lucide Icons |
-| Database | Supabase (PostgreSQL) |
-| Realtime | Supabase Realtime (WebSockets) |
+| Database | Supabase |
+| Realtime | Supabase Realtime |
 | Hosting | GitHub Pages |
+|offline hosting | python |
 
 ---
 
@@ -103,5 +90,3 @@ bput-campus-platform/
 3. All data persists across sessions — no data lost on page refresh
 
 ---
-
-*Made with ❤️ for BPUT Hackathon 2026*
